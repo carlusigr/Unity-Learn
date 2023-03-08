@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public string inputID;
     //variaveis privadas
     private float speed = 20.0f;
     private float turnSpeed = 45.0f;
@@ -20,8 +21,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //coletando os inputs
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal" + inputID);
+        forwardInput = Input.GetAxis("Vertical" + inputID);
         //movimentacao
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
